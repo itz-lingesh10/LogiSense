@@ -35,7 +35,7 @@ Every module follows a strict 3-tier layering pattern:
 - **common:** Global exception handler, unified error responses, and shared utility classes.
 
 ## Planned Entities
-- `users`
+- `users`: `id` (BIGINT, generated always as identity, PK), `email` (VARCHAR 255, unique case-insensitive via `lower(email)`), `password_hash` (VARCHAR 255), `full_name` (VARCHAR 150), `phone` (VARCHAR 30, nullable), `role` (VARCHAR 20, check constraint: `ADMIN`, `DISPATCHER`, `DRIVER`, `CUSTOMER`), `enabled` (BOOLEAN, default true), `created_at` (TIMESTAMPTZ, default now()), `updated_at` (TIMESTAMPTZ, default now())
 - `vehicles`
 - `drivers`
 - `orders`

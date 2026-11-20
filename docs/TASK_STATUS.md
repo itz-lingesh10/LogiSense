@@ -1,7 +1,7 @@
 # LogiSense - Task Status
 
 ## Current Task
-- **Task 1.2: Flyway and first migration (users)** (TODO)
+- **Task 1.3: Global exception handler, error response, Swagger** (TODO)
 
 ## Task Table
 
@@ -10,7 +10,7 @@
 | **0.1** | Environment check and repo | **DONE** | Repo created, identity set |
 | **0.2** | Continuity docs | **DONE** | 5 continuity documents created and committed |
 | **1.1** | Spring Boot skeleton, Docker Compose for PostgreSQL, health endpoint | **DONE** | Spring Boot 4.1.2, Postgres 17 compose, Actuator health verified |
-| **1.2** | Flyway and first migration (users) | **TODO** | |
+| **1.2** | Flyway and first migration (users) | **DONE** | PostgreSQL connection, Flyway V1 migration for users, Testcontainers tests passing |
 | **1.3** | Global exception handler, error response, Swagger | **TODO** | |
 | **2.1** | User entity and register/login with password hashing | **TODO** | |
 | **2.2** | JWT generation and filter | **TODO** | |
@@ -42,6 +42,7 @@
 ## Known Risks
 - Docker Desktop was not running at the time of writing and must be working before Task 1.1.
 - Maven installed in the Downloads folder (must be accessible from terminal PATH).
+- Actuator health currently shows component details. Set management.endpoint.health.show-details to never (or when-authorized) before deployment.
 
 ## Last Updated
 2026-11-20

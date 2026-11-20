@@ -16,6 +16,13 @@
 | **API design** | DTOs separate from entities, global exception handler, Swagger via springdoc | Strict data contract isolation, unified error handling, and interactive documentation. |
 | **Testing** | JUnit 5 and Mockito for services, Testcontainers for integration tests | Comprehensive unit isolation and production-like PostgreSQL testing during integration. |
 | **Frontend** | None in Layer 1; tested via Swagger UI | Keeps complete focus on backend business logic and API correctness in Layer 1. |
+| **User Roles** | One role per user stored as a string with a `CHECK` constraint (`ADMIN`, `DISPATCHER`, `DRIVER`, `CUSTOMER`) | Simple, strict validation directly in the database without complex join tables. |
+| **Primary Keys** | `BIGINT GENERATED ALWAYS AS IDENTITY` | 64-bit auto-incrementing safety preventing integer overflow without manual sequence management. |
+| **Email Uniqueness** | Emails stored as given with a case-insensitive unique index (`lower(email)`) | Prevents duplicate accounts with differing letter case; service layer normalizes casing in Task 2.1. |
+| **Schema Evolution** | Flyway-only migrations with `spring.jpa.hibernate.ddl-auto=validate` | Reproducible, version-controlled schema evolution; Hibernate validates schema against entities. |
+| **Environment Config** | `.env` loaded through `spring.config.import=optional:file:.env[.properties]` | Keeps credentials out of source control while natively loading local secrets. |
+| **JPA Open-in-View** | `spring.jpa.open-in-view=false` | Closes DB sessions at service boundaries, preventing lazy loading queries in the web/controller tier. |
+| **Database Testing** | Testcontainers PostgreSQL 17 for all DB-backed tests via `@ServiceConnection` | True integration parity in temporary ephemeral containers; tests never touch the dev database. |
 
 ## Environment
 - **Operating System:** Windows 11
