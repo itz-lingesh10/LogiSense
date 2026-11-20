@@ -1,15 +1,15 @@
 # LogiSense - Task Status
 
 ## Current Task
-- **Task 0.2: Create the 5 project continuity documents** (In Progress)
+- **Task 1.1: Spring Boot skeleton, PostgreSQL via Docker Compose, health endpoint** (In Progress)
 
 ## Task Table
 
 | Task | Description | Status | Notes |
 | :--- | :--- | :---: | :--- |
 | **0.1** | Environment check and repo | **DONE** | Repo created, identity set |
-| **0.2** | Continuity docs | **IN PROGRESS** | Creating 5 continuity documents |
-| **1.1** | Spring Boot skeleton, Docker Compose for PostgreSQL, health endpoint | **TODO** | |
+| **0.2** | Continuity docs | **DONE** | 5 continuity documents created and committed |
+| **1.1** | Spring Boot skeleton, Docker Compose for PostgreSQL, health endpoint | **IN PROGRESS** | |
 | **1.2** | Flyway and first migration (users) | **TODO** | |
 | **1.3** | Global exception handler, error response, Swagger | **TODO** | |
 | **2.1** | User entity and register/login with password hashing | **TODO** | |

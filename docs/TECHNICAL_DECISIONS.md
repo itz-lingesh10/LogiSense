@@ -5,7 +5,8 @@
 | Decision | Choice | Reason |
 | :--- | :--- | :--- |
 | **Architecture** | Modular monolith | Simplest design that is realistic for a solo beginner project. |
-| **Language and build** | Java 21 as compile target (`release 21`), Spring Boot 3.x, Maven | Modern LTS baseline with widespread community and library support. |
+| **Language and build** | Java 21 as compile target (`release 21`), Spring Boot 4.1.x, Maven | 3.5 no longer receives free security patches and 4.0 loses free support on 31 Dec 2026; 4.1 is the supported line. |
+| **Spring Boot 4 Conventions** | Verify 4.1 artifact names and imports against official docs; all tasks must pass `mvn test` | AI-generated code often assumes Spring Boot 3.x conventions (e.g. renamed starters like `spring-boot-starter-webmvc` and test modularization). |
 | **Database** | PostgreSQL via Docker Compose, with Flyway migrations | Reliable relational database with controlled schema evolution (no Hibernate auto-DDL). |
 | **Authentication** | JWT with Spring Security, roles `ADMIN`, `DISPATCHER`, `DRIVER`, `CUSTOMER` | Stateless authentication appropriate for REST APIs with clear role-based access control. |
 | **Driver model** | Driver is a `User` with role `DRIVER` plus a linked `Driver` profile | Clean separation of authentication/credentials from domain fleet attributes. |
