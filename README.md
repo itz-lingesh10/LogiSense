@@ -4,7 +4,13 @@ Logistics management platform built with Spring Boot (work in progress)
 
 ## Status
 
-Phase 1: foundation in progress
+Phase 1: foundation complete. Starting Phase 2: authentication & users.
+
+## API Documentation
+
+When the application is running, interactive API documentation and the OpenAPI specification are available at:
+- **Swagger UI:** [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
+- **OpenAPI 3.1 JSON Specification:** [http://localhost:8080/v3/api-docs](http://localhost:8080/v3/api-docs)
 
 ## Run Locally
 

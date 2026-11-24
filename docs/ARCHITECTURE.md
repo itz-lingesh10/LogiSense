@@ -32,7 +32,11 @@ Every module follows a strict 3-tier layering pattern:
 - **tracking:** Public read-only tracking endpoint looked up by tracking number.
 - **alert:** Scheduled background job that detects and flags overdue shipments.
 - **analytics:** Aggregate KPI metrics (total orders, delivered count, delayed shipments, on-time delivery percentage).
-- **common:** Global exception handler, unified error responses, and shared utility classes.
+- **common:** Cross-cutting concerns including:
+  - Global exception handler: `GlobalExceptionHandler` (`@RestControllerAdvice`).
+  - Standard error format: `ErrorResponse` (ISO-8601 UTC timestamp, status, error, message, path, fieldErrors) and `FieldErrorDetail` (field, message).
+  - Business exceptions: `ResourceNotFoundException` (404), `ConflictException` (409), `BusinessRuleException` (422).
+  - Shared utility classes.
 
 ## Planned Entities
 - `users`: `id` (BIGINT, generated always as identity, PK), `email` (VARCHAR 255, unique case-insensitive via `lower(email)`), `password_hash` (VARCHAR 255), `full_name` (VARCHAR 150), `phone` (VARCHAR 30, nullable), `role` (VARCHAR 20, check constraint: `ADMIN`, `DISPATCHER`, `DRIVER`, `CUSTOMER`), `enabled` (BOOLEAN, default true), `created_at` (TIMESTAMPTZ, default now()), `updated_at` (TIMESTAMPTZ, default now())

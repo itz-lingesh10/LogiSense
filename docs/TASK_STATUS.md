@@ -1,7 +1,12 @@
 # LogiSense - Task Status
 
 ## Current Task
-- **Task 1.3: Global exception handler, error response, Swagger** (TODO)
+- **Task 2.1: User entity and register/login with password hashing** (TODO)
+
+## Phase Status
+- **Phase 0 (Setup):** COMPLETED
+- **Phase 1 (Foundation):** COMPLETED
+- **Phase 2 (Auth & Users):** NOT STARTED
 
 ## Task Table
 
@@ -11,7 +16,7 @@
 | **0.2** | Continuity docs | **DONE** | 5 continuity documents created and committed |
 | **1.1** | Spring Boot skeleton, Docker Compose for PostgreSQL, health endpoint | **DONE** | Spring Boot 4.1.2, Postgres 17 compose, Actuator health verified |
 | **1.2** | Flyway and first migration (users) | **DONE** | PostgreSQL connection, Flyway V1 migration for users, Testcontainers tests passing |
-| **1.3** | Global exception handler, error response, Swagger | **TODO** | |
+| **1.3** | Global exception handler, error response, Swagger | **DONE** | Global exception handler with unified ErrorResponse, 3 custom business exceptions, Swagger UI via springdoc 3.2.1, 17 tests passing |
 | **2.1** | User entity and register/login with password hashing | **TODO** | |
 | **2.2** | JWT generation and filter | **TODO** | |
 | **2.3** | Role rules, admin creates dispatcher and driver accounts, security tests | **TODO** | |
@@ -40,9 +45,8 @@
 | **Layer 3** | FastAPI ETA model, Spring Boot integration with fallback, simple frontend | **TODO** | Detail later |
 
 ## Known Risks
-- Docker Desktop was not running at the time of writing and must be working before Task 1.1.
-- Maven installed in the Downloads folder (must be accessible from terminal PATH).
-- Actuator health currently shows component details. Set management.endpoint.health.show-details to never (or when-authorized) before deployment.
+- Docker Desktop must be running during builds and tests because integration tests use Testcontainers.
+- Actuator health currently shows component details (`management.endpoint.health.show-details=always`). Will be restricted in Phase 2.
 
 ## Last Updated
-2026-11-20
+2026-11-24

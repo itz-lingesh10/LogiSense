@@ -23,6 +23,10 @@
 | **Environment Config** | `.env` loaded through `spring.config.import=optional:file:.env[.properties]` | Keeps credentials out of source control while natively loading local secrets. |
 | **JPA Open-in-View** | `spring.jpa.open-in-view=false` | Closes DB sessions at service boundaries, preventing lazy loading queries in the web/controller tier. |
 | **Database Testing** | Testcontainers PostgreSQL 17 for all DB-backed tests via `@ServiceConnection` | True integration parity in temporary ephemeral containers; tests never touch the dev database. |
+| **JVM Timezone** | UTC forced across runtime, Maven Surefire, and Testcontainers (`user.timezone=UTC`) | Guarantees consistent ISO-8601 UTC timestamp handling across PostgreSQL 17 TIMESTAMPTZ columns and tests. |
+| **Error Response Format** | Unified `ErrorResponse` record (timestamp, status, error, message, path, fieldErrors) | Consistent error structure for all API responses; internal implementation details and stack traces are shielded on 500. |
+| **Exception Handling Strategy** | `@RestControllerAdvice` in `common.exception` package | Maps custom business exceptions (`ResourceNotFoundException` -> 404, `ConflictException` -> 409, `BusinessRuleException` -> 422) and Spring framework exceptions. |
+| **OpenAPI / Swagger** | `springdoc-openapi-starter-webmvc-ui` (version `3.2.1` for Spring Boot 4.x) | Interactive Swagger UI available at `/swagger-ui/index.html` and OpenAPI specification at `/v3/api-docs`. |
 
 ## Environment
 - **Operating System:** Windows 11
